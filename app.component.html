@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <ul class = "navbar-nav">
+      <li class = "nav-item">
+          <a *ngIf="userService.isUserLoggedIn()" routerLink="see-all-flights"  routerLinkActive="active" class="nav-link" >Flight List</a>
+      </li>
+      <li class = "nav-item">
+          <a *ngIf="userService.isUserLoggedIn()" routerLink="create-flight" routerLinkActive="active" class="nav-link" >Add New Flight</a>
+      </li>
+      <li  class = "nav-item">
+        <a *ngIf="!userService.isUserLoggedIn()" routerLink="/signin">
+          <i class="fas fa-door-open"></i>
+          <span class="nav-item">Login</span>
+        </a>
+      </li>
+      <li  class = "nav-item">
+        <a *ngIf="userService.isUserLoggedIn()" routerLink="/log-out">
+          <i class="fas fa-sign-out-alt"></i>
+          <span class="nav-item">Logout</span>
+        </a>
+      </li>
+  </ul>
+</nav>
+
+<h1 class="text-center"> {{title}} </h1>
+<div class = "container">
+  <router-outlet></router-outlet>
+</div>
